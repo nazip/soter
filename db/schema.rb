@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624123801) do
+ActiveRecord::Schema.define(version: 20151022121227) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -24,19 +24,10 @@ ActiveRecord::Schema.define(version: 20150624123801) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "group_id",   limit: 4
+    t.integer  "kolvo",      limit: 4
   end
 
   add_index "products", ["group_id"], name: "index_products_on_group_id", using: :btree
 
-  create_table "storages", force: :cascade do |t|
-    t.integer  "kolvo",      limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "product_id", limit: 4
-  end
-
-  add_index "storages", ["product_id"], name: "index_storages_on_product_id", using: :btree
-
   add_foreign_key "products", "groups"
-  add_foreign_key "storages", "products"
 end

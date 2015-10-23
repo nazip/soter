@@ -4,15 +4,11 @@ feature 'view the storage', %q(
   user can view  the storage
 ) do
   given!(:group) { create(:group) }
-  given!(:product) { create(:product, group) }
-  given!(:storage) { create(:storage, product) }
+  given!(:product) { create(:product, group: group) }
 
-  scenario 'user can view the storage'
-
-  # scenario 'user can view storage' do
-
-  #   visit storage_path(storage)
-
-  #   expect(page).to have_content 'new answer'
-  # end
+  scenario 'user can view storage' do
+    visit products_path
+save_and_open_page
+    expect(page).to have_content 'new product'
+  end
 end

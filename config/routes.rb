@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :storages do
-    resources :products do
-      resources :groups
-    end
+  root 'pages#index'
+
+  resources :pages
+  resources :products do
+    resources :groups
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
