@@ -24,7 +24,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'responders', '~> 2.0'
 gem 'foundation-rails'
+gem 'pundit'
+
+gem 'slim-rails'
 gem 'devise'
+gem 'mysql2'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,26 +43,31 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'slim-rails'
-
 group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+  gem 'json_spec'
 end
-
-gem 'slim-rails'
-gem 'devise'
-gem 'mysql2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
   gem 'pry-byebug'
 
+  # delete assets records from rails s log
+  gem 'quiet_assets'
+
+  # to format the error logs
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  # for rails panel
+  gem 'meta_request'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -63,4 +77,6 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'capybara-email'
+  gem "letter_opener"
 end

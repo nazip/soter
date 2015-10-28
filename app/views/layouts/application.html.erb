@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title>Сотер</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -13,11 +13,10 @@
   </head>
 
   <body>
-
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="pages#index">Сотер</a></h1>
+          <h1><a href=<%= pages_path %> >Сотер</a></h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -26,13 +25,18 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-          <li class="active"><a href="#">Контакты</a></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Выйти", "/users/sign_out", method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Войти", "/users/sign_in", method: :post %></li>
+          <% end %>
         </ul>
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <li><a href="pages#index">Главная</a></li>
-          <li><a href="products#index">Наша продукция</a></li>
+          <li class="active"><a href=<%= pages_path %>>Главная</a></li>
+          <li><a href=<%= products_path %>>Наша продукция</a></li>
+          <li><a href=<%= contacts_pages_path %>>Контакты</a></li>
         </ul>
       </section>
     </nav>
@@ -41,6 +45,8 @@
     <div class="row">
       <div class="small-2 large-3 columns"></div>
       <div class="small-4 small-centered large-6 columns">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <%= yield %>
       </div>
       <div class="small-6 large-3 columns"></div>
@@ -48,3 +54,12 @@
 
   </body>
 </html>
+
+<!--
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+-->

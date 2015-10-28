@@ -1,0 +1,5 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>Для подтверждения регистации, пройдите по ниже указанной ссылке:</p>
+
+<p><%= link_to 'Подтвердить рагистрацию', confirmation_url(@resource, confirmation_token: @token) %></p>
