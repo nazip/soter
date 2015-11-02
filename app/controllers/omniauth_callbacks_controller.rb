@@ -16,7 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: request.env['omniauth.auth'].provider) if is_navigational_format?
     else
-      # have to ask a email
+      # have to ask the email
 
       redirect_to new_user_registration_path, resource: @user
     end

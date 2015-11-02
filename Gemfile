@@ -22,7 +22,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'responders', '~> 2.0'
+# gem 'responders', '~> 2.0'
+gem 'responders'
 gem 'foundation-rails'
 gem 'pundit'
 
@@ -34,14 +35,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'unicorn'
+gem 'will_paginate'
 
 group :test do
   gem 'shoulda-matchers'
@@ -80,3 +75,13 @@ group :development, :test do
   gem 'capybara-email'
   gem "letter_opener"
 end
+
+group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-unicorn', require: false
+end
+

@@ -35,7 +35,7 @@
         <!-- Left Nav Section -->
         <ul class="left">
           <li class="active"><a href=<%= pages_path %>>Главная</a></li>
-          <li><a href=<%= products_path %>>Наша продукция</a></li>
+          <li><%= link_to "Наша продукция", products_path, remote: true %></li>
           <li><a href=<%= contacts_pages_path %>>Контакты</a></li>
         </ul>
       </section>
@@ -47,7 +47,7 @@
       <div class="small-4 small-centered large-6 columns">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <%= yield %>
+        <div class="soter-body"><%= yield %></div>
       </div>
       <div class="small-6 large-3 columns"></div>
     </div>

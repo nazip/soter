@@ -17,3 +17,10 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+  $("a").click(function(){
+    $(".top-bar li").removeClass("active");
+    $(this).parents("li").toggleClass("active");
+  });
+});
