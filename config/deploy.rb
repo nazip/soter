@@ -2,7 +2,8 @@
 lock '3.4.0'
 
 set :application, 'soter'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, '192.168.1.144:/home/nazip/prj/soter.git'
+# set :repo_url, 'git@example.com:me/my_repo.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -71,4 +72,4 @@ namespace :deploy do
   after :publishing, :restart
 end
 
-after 'deploy:restart', 'private_pub:restart'
+# after 'deploy:restart', 'private_pub:restart'
