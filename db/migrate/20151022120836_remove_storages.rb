@@ -1,5 +1,5 @@
 class RemoveStorages < ActiveRecord::Migration
   def change
-    drop_table :storages
+    # drop_table :storages
   end
 end

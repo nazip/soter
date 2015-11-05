@@ -4,9 +4,11 @@ describe PagePolicy do
   let(:user) { create(user :user) }
   subject { described_class }
 
-  permissions :index? do
-    it 'any user can view page#index' do
-      expect subject.to permit(User.new, Page.new)
+  [:index?, :contact?].each do |action|
+    permissions action do
+      it "any user can view page##{action}" do
+        expect(subject).to permit(User.new, nil)
+      end
     end
   end
 

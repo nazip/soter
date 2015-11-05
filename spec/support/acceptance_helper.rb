@@ -3,7 +3,7 @@ module AcceptanceHelper
     visit new_user_session_path
     fill_in 'Email', with: user.email
     fill_in 'user[password]', with: user.password
-    click_on 'Вход'
+    click_button 'Войти'
   end
 
   def sign_up(user)

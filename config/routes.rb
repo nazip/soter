@@ -1,20 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', sessions: 'users/sessions'}
   # devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
 
   root 'pages#index'
+
+  resources :attachments, only: :destroy
 
   resources :pages do
     collection do
       get 'contacts'
     end
   end
-  resources :products do
+  resources :products, shallow: true do
     collection do
       post 'sell'
     end
-    resources :groups
+    member do
+      get 'pictures'
+    end
   end
+
+  resources :groups
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

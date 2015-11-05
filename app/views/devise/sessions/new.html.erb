@@ -14,9 +14,11 @@
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label 'напомнить' %>
+      <%= f.label 'запомнить' %>
     </div>
   <% end -%>
+
+  <%= recaptcha_tags %>
 
   <div class="actions">
     <%= f.submit "Вход" %>

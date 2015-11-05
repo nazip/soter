@@ -1,0 +1,19 @@
+Pry is written from scratch to provide a number of advanced features, some of these include:
+
+Source code browsing (including core C source with the pry-doc gem)
+Navigation around state (cd, ls and friends)
+Rubinius core source browsing
+Documentation browsing
+Live help system
+Open methods in editors (edit-method Class#method)
+Syntax highlighting
+Command shell integration (start editors, run git, and rake from within Pry)
+Gist integration
+Runtime invocation (use Pry as a developer console or debugger)
+Exotic object support (BasicObject instances, IClasses, ...)
+A powerful and flexible command system
+Ability to view and replay history
+Many convenience commands inspired by IPython, Smalltalk and other advanced REPLs
+Pry also aims to be more than an IRB replacement; it is an attempt to bring REPL driven programming to the Ruby language. It is currently not as powerful as tools like SLIME for lisp, but that is the general direction Pry is heading.
+
+Pry is also fairly flexible and allows significant user customization making it a good choice for implementing custom shells.

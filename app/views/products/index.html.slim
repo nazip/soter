@@ -1,0 +1,11 @@
+- if !@products.empty?
+  table
+    tr
+      th Группа
+      th Артикул
+      th Наименование
+      th Кол-во
+    - @products.each do |product|
+      = render product
+- if policy(Product.new).create?      
+	= link_to 'Добавить продукт', new_product_path, class: 'button expand'

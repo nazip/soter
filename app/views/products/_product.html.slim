@@ -1,0 +1,11 @@
+    tr [class = "product-#{product.id}"]
+      td = product.group.name
+      td = product.art
+      td = product.name
+      td = product.kolvo
+      - if policy(product).edit?
+        td = link_to 'редак.', edit_product_path(product)
+      - if policy(product).destroy?
+        td = link_to 'удалить', product_path(product), method: :delete, remote: true, data: {confirm: 'Удалить продукт ?'}
+      - if !product.attachments.empty?
+        td = link_to 'фото', pictures_product_path(product), class: 'button tiny info round'

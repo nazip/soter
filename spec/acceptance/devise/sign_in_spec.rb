@@ -8,7 +8,7 @@ feature 'sing_in', %q(
 
   scenario 'existing user may sign in' do
     sign_in(user)
-    expect(page).to have_content 'Signed in successfully.'
+    expect(page).to have_content 'Вы аунтефицированы'
     expect(current_path).to eq root_path
   end
 
@@ -17,7 +17,7 @@ feature 'sing_in', %q(
     visit new_user_session_path
     fill_in 'Email', with: 'dfg@test.ru'
     fill_in 'user[password]', with: '12345678'
-    click_on 'Вход'
+    click_button 'Войти'
     expect(page).to have_content 'Invalid email or password'
     expect(current_path).to eq new_user_session_path
   end

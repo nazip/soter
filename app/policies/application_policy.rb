@@ -19,7 +19,7 @@ class ApplicationPolicy
   end
 
   def new?
-    create?
+    false
   end
 
   def update?
@@ -27,11 +27,15 @@ class ApplicationPolicy
   end
 
   def edit?
-    update?
+    false
   end
 
   def destroy?
     false
+  end
+
+  def admin?
+    !user.nil? and user.admin?
   end
 
   def scope
@@ -50,4 +54,5 @@ class ApplicationPolicy
       scope
     end
   end
+
 end

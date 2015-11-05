@@ -5,11 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+# gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -24,7 +24,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # gem 'responders', '~> 2.0'
 gem 'responders'
-gem 'foundation-rails'
 gem 'pundit'
 
 gem 'slim-rails'
@@ -38,6 +37,23 @@ gem 'omniauth-twitter'
 gem 'unicorn'
 gem 'will_paginate'
 
+gem 'whenever'
+
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'therubyracer'
+
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
+
+gem 'carrierwave'
+gem 'remotipart'
+gem 'cocoon'
+
+gem 'recaptcha', :require => "recaptcha/rails"
+gem 'bcrypt'
+
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
@@ -49,7 +65,17 @@ group :test do
   gem 'json_spec'
 end
 
+gem 'foundation-rails'
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'foundation-icons-sass-rails'
+end
+
 group :development, :test do
+  # gem 'pg'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
   gem 'pry-byebug'

@@ -1,0 +1,9 @@
+- if !@groups.empty?
+  table
+    tr
+      th Наименование группы
+    - @groups.each do |group|
+      = render group
+- if policy(Group.new).create?
+	= link_to 'Добавить группу', new_group_path, class: 'button expand'
+=link_to "Назад", "javascript:history.back()"

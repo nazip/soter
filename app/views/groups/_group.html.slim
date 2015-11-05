@@ -1,0 +1,6 @@
+tr [class = "group-#{group.id}"]
+  td = group.name
+  - if policy(group).edit?
+  	td = link_to 'редак.', edit_group_path(group)
+  - if policy(group).destroy?	
+  	td = link_to 'удалить', group_path(group), method: :delete, remote: true, data: {confirm: 'Удалить группу ?'}
