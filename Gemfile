@@ -42,6 +42,10 @@ gem 'whenever'
 
 gem 'oj'
 gem 'oj_mimic_json'
+gem 'therubyracer'
+
+gem 'dotenv'
+gem 'dotenv-deployment', require: 'dotenv/deployment'
 
 group :test do
   gem 'shoulda-matchers'
