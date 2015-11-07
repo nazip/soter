@@ -38,6 +38,11 @@ gem 'omniauth-twitter'
 gem 'unicorn'
 gem 'will_paginate'
 
+gem 'whenever'
+
+gem 'oj'
+gem 'oj_mimic_json'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
