@@ -5,7 +5,5 @@
       th Наименование
       th Кол-во
     - @products.each do |product|
-      tr
-        td = product.group.name
-        td = product.name
-        td = product.kolvo
+      = render product
+= link_to 'Новый продукт', new_product_path

@@ -1,0 +1,6 @@
+div class = "product-#{product.id}"
+  tr
+    td = product.group.name
+    td = product.name
+    td = product.kolvo
+    td = link_to 'редак.', edit_product_path(product)

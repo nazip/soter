@@ -1,15 +1,26 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :pandit_authorize, except: :index
-  before_action :get_all_products
+  # before_action :pandit_authorize, except: [:index, :new]
+  before_action :get_all_products, except: :new
 
-  respond_to :js
+  # respond_to :js
 
   def index
     respond_with(@products)
   end
 
   def sell
+  end
+
+  def edit
+  end
+
+  def new
+    @product = Product.new
+    # @attachment = @product.attachment.build
+  end
+
+  def create
   end
 
   private

@@ -1,0 +1,14 @@
+.container
+  = form_for @product do |f|
+    p
+      = f.label 'Наименование'
+      = f.text_field :name
+    p
+      = f.label 'Группа'
+      = select :group, :group_id, Group.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }
+    p
+      = f.label 'Кол-во'
+      = f.text_field :kolvo
+      .links
+        = link_to_add_association 'add attachment', f, :attachments
+    = f.submit "Сохранить"

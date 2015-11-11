@@ -47,6 +47,10 @@ gem 'therubyracer'
 gem 'dotenv'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
 
+gem 'carrierwave'
+gem 'remotipart'
+gem 'cocoon'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
