@@ -11,15 +11,16 @@ Rails.application.routes.draw do
       get 'contacts'
     end
   end
-  resources :products do
+  resources :products, shallow: true do
     collection do
       post 'sell'
     end
     member do
       get 'pictures'
     end
-    resources :groups
   end
+
+  resources :groups
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

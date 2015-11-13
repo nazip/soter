@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :kolvo, :group_id, attachments_attributes: [:file])
+      params.require(:product).permit(:name, :art, :kolvo, :group_id, attachments_attributes: [:file])
     end
 
     def get_all_products

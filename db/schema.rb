@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111082356) do
+ActiveRecord::Schema.define(version: 20151113103631) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "file",            limit: 255
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151111082356) do
     t.datetime "updated_at",             null: false
     t.integer  "group_id",   limit: 4
     t.integer  "kolvo",      limit: 4
+    t.string   "art",        limit: 255
   end
 
   add_index "products", ["group_id"], name: "index_products_on_group_id", using: :btree

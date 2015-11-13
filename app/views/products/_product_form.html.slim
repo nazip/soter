@@ -1,0 +1,20 @@
+  = form_for @product do |f|
+    p
+      = f.label 'Наименование'
+      = f.text_field :name
+    p
+      = f.label 'Артикул'
+      = f.text_field :art
+    p
+      = f.label 'Группа'
+      = select :product, :group_id, Group.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }
+    p
+      = f.label 'Кол-во'
+      = f.text_field :kolvo
+      - @product.attachments.each do |a|
+        div class = "attachment-#{a.id}"
+          img [src= a.file.url]
+          li= link_to "Удалить #{a.file.identifier}", attachment_path(a), method: :delete, remote: true
+      .links
+        = link_to_add_association 'Добавить фото', f, :attachments
+    = f.submit "Сохранить"
