@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  resources :attachments, only: :destroy
+
   resources :pages do
     collection do
       get 'contacts'

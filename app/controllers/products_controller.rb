@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: :index
   # before_action :pandit_authorize, except: [:index, :new]
-  before_action :get_all_products, except: [:new, :pictures]
-  before_action :find_product, only: [:pictures, :edit]
+  before_action :get_all_products, only: [:index]
+  before_action :find_product, only: [:pictures, :edit, :update, :destroy]
 
-  # respond_to :js
+  respond_to :js, only: :destroy
 
   def index
     respond_with(@products)
@@ -13,11 +13,20 @@ class ProductsController < ApplicationController
   def sell
   end
 
+  def destroy
+    respond_with(@product.destroy)
+  end
+
   def pictures
   end
 
   def edit
     respond_with @product
+  end
+
+  def update
+    @product.update(product_params)
+    respond_with(@product)
   end
 
   def show
