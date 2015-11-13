@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     collection do
       post 'sell'
     end
+    member do
+      get 'pictures'
+    end
     resources :groups
   end
 

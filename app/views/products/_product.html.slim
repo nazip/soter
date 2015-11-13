@@ -4,3 +4,5 @@ div class = "product-#{product.id}"
     td = product.name
     td = product.kolvo
     td = link_to 'редак.', edit_product_path(product)
+    - if !product.attachments.empty?
+      td = link_to 'фото', pictures_product_path(product), class: 'button tiny round'
