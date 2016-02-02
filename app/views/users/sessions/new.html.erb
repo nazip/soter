@@ -1,13 +1,13 @@
-<h2>Вход</h2>
+<h2 class='center'>Вход</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label 'Пароль' %><br />
+    <%= f.label 'Пароль' %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
@@ -19,10 +19,12 @@
   <% end -%>
 
   <%= recaptcha_tags %>
-
-  <div class="actions">
-    <%= f.submit "Вход" %>
+  <br/>
+  <div class="actions center">
+    <%= f.submit "Войти", class: 'button' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="left">
+  <%= render "devise/shared/links" %>
+</div>

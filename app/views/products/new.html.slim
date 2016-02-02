@@ -1,1 +1,2 @@
-= render 'products/product_form'
+- if policy(@product).create?      
+	= render 'products/product_form'

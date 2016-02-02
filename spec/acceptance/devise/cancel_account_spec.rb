@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Sign out', %q( for user
 ) do
   given(:user) { create(:user) }
-
   scenario 'existing user can sign out' do
     sign_in(user)
     root_path

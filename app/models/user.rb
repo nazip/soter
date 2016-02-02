@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   has_many :authorizations
+  # has_secure_password
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
-         :validatable, :confirmable, :lockable, :omniauthable, omniauth_providers: [:facebook, :twitter]
+         :validatable, :confirmable, :lockable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.find_for_oauth(auth, mail = nil)
     authorization = Authorization.where(provider: auth['provider'], uid: auth['uid']).first;

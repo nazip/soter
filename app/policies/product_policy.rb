@@ -1,11 +1,12 @@
 class ProductPolicy < ApplicationPolicy
 
-  def index?
-    true
-  end
+  [:destroy?, :new?, :update?, :edit?, :create?].each { |v| define_method v do admin?; end }
+  [:index?, :sell?, :pictures?].each { |v| define_method v do true; end }
 
-  def sell?
-    true
+  class Scope < Scope
+    def resolve
+      scope
+    end
   end
 
 end

@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  recaptcha:
+      errors:
+        verification_failed: 'Ошибка проверки Captcha'
+        recaptcha_unreachable: 'Не удалось проверить Captcha'

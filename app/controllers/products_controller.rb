@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  # before_action :pandit_authorize, except: [:index, :new]
+  before_action :pandit_authorize, except: [:index, :show]
   before_action :get_all_products, only: [:index]
   before_action :find_product, only: [:pictures, :edit, :update, :destroy]
 
@@ -56,6 +56,6 @@ class ProductsController < ApplicationController
     end
 
     def pandit_authorize
-      authorize Product.new
+        authorize Product.new
     end
 end

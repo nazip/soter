@@ -7,4 +7,5 @@
       th Кол-во
     - @products.each do |product|
       = render product
-= link_to 'Добавить продукт', new_product_path, class: 'button expand'
+- if policy(Product.new).create?      
+	= link_to 'Добавить продукт', new_product_path, class: 'button expand'

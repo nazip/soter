@@ -8,6 +8,7 @@
     p
       = f.label 'Группа'
       = select :product, :group_id, Group.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }
+      = link_to 'Ред. группы', groups_path, class: 'button tiny round secondary'
     p
       = f.label 'Кол-во'
       = f.text_field :kolvo
@@ -16,5 +17,5 @@
           img [src= a.file.url]
           li= link_to "Удалить #{a.file.identifier}", attachment_path(a), method: :delete, remote: true
       .links
-        = link_to_add_association 'Добавить фото', f, :attachments
-    = f.submit "Сохранить"
+        = link_to_add_association 'Добавить фото', f, :attachments, class: 'button tiny round'
+    = f.submit "Сохранить", class: 'button'
