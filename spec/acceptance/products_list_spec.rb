@@ -7,11 +7,23 @@ feature 'products', %q(
   given!(:product) { create(:product, group: group) }
   given!(:admin) { create(:user, admin: true) }
   given!(:user) { create(:user) }
+  given!(:attachment) { create(:attachment, attachable: product) }
 
-  scenario 'any user can view list of products' do
-    visit products_path
-    expect(page).to have_content 'new product'
+  describe 'Not authenticated user' do
+    before { visit products_path }
+
+    scenario 'can view list of products' do
+      expect(page).to have_content 'new product'
+    end
+
+    scenario 'can view an attached pictures' do
+      expect(page).to have_content 'new product'
+      find(".product-#{product.id} .button").click
+binding.pry
+save_and_open_page
+    end
   end
+
 
   scenario 'authenticated user(no admin) can not delete/edit/add the product' do
     sign_in(user)

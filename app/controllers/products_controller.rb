@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :pictures]
   before_action :pandit_authorize, except: [:index, :show]
   before_action :get_all_products, only: [:index]
   before_action :find_product, only: [:pictures, :edit, :update, :destroy]
