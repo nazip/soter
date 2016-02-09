@@ -29,6 +29,7 @@ gem 'pundit'
 gem 'slim-rails'
 gem 'devise'
 gem 'mysql2'
+gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
