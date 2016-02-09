@@ -14,4 +14,8 @@ module AcceptanceHelper
     fill_in 'user[password_confirmation]', with: user.password
     click_on 'Зарегистрироваться'
   end
+
+  def sign_out
+    click_on "Выйти"
+  end
 end

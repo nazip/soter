@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative 'acceptance_helper'
 
 feature 'groups', %q(
   view and edit the list of groups
@@ -25,10 +25,28 @@ feature 'groups', %q(
       expect(page).to have_content group.name
     end
 
-    scenario 'can edit, delete, add the group' do
+    scenario 'can edit the group' do
       expect(page).to have_content 'редак.'
+      click_on 'редак.'
+      expect(page).to have_button 'Сохранить'
+      fill_in 'group[name]', with: 'other group name'
+      click_on 'Сохранить'
+      expect(page).to have_content 'other group name'
+    end
+
+    scenario 'can delete the group' do
       expect(page).to have_content 'удалить'
+      click_on 'удалить'
+      expect(page).to have_content 'Group удален(а).'
+    end
+
+    scenario 'can add the group' do
       expect(page).to have_content 'Добавить группу'
+      click_on 'Добавить группу'
+      expect(page).to have_button 'Сохранить'
+      fill_in 'group[name]', with: 'other group name'
+      click_on 'Сохранить'
+      expect(page).to have_content 'Group создан(а).'
     end
   end
 
