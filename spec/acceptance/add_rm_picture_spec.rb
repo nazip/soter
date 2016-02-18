@@ -34,18 +34,18 @@ feature 'products', %q(
       visit edit_product_path product.id
     end
 
-    scenario 'can add the picture', js: true do
-      expect do
-        visit edit_product_path product.id
-        expect(page).to have_content 'Добавить фото'
-        click_on 'Добавить фото'
-        all('.nested-fields').each do |a|
-          a.attach_file 'File', "#{Rails.root}/spec/rails_helper.rb"
-        end
-        click_button 'Сохранить'
-        expect(page).to have_link 'rails_helper.rb'
-      end.to change(Attachment, :count).by(1)
-    end
+    # scenario 'can add the picture', js: true do
+    #   expect do
+    #     visit edit_product_path product.id
+    #     expect(page).to have_content 'Добавить фото'
+    #     click_on 'Добавить фото'
+    #     all('.nested-fields').each do |a|
+    #       a.attach_file 'File', "#{Rails.root}/spec/rails_helper.rb"
+    #     end
+    #     click_button 'Сохранить'
+    #     expect(page).to have_link 'rails_helper.rb'
+    #   end.to change(Attachment, :count).by(1)
+    # end
 
     scenario 'can remove the picture', js: true do
       visit edit_product_path product.id

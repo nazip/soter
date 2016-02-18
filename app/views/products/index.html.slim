@@ -1,11 +1,18 @@
 - if !@products.empty?
-  table
+  table class='responsive'
     tr
       th Группа
       th Артикул
       th Наименование
       th Кол-во
+
+      - if policy(@products.first).edit?
+        th
+      - if policy(@products.first).destroy?
+        th
+      - if !@products.first.attachments.empty?
+        th
     - @products.each do |product|
       = render product
-- if policy(Product.new).create?      
+- if policy(Product.new).create?
 	= link_to 'Добавить продукт', new_product_path, class: 'button expand'
