@@ -54,7 +54,6 @@ gem 'cocoon'
 gem 'recaptcha', :require => "recaptcha/rails"
 gem 'bcrypt'
 
-
 group :test do
   gem 'shoulda-matchers'
   gem 'rubocop'
@@ -67,12 +66,12 @@ group :test do
 end
 
 gem 'foundation-rails'
-group :assets do
+# group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'foundation-icons-sass-rails'
-end
+# end
 
 group :development, :test do
   # gem 'pg'
