@@ -40,11 +40,10 @@ feature 'products', %q(
         expect(page).to have_content 'Добавить фото'
         click_on 'Добавить фото'
         attach_file 'File', "#{Rails.root}/spec/rails_helper.rb"
-        attach_file 'File', "#{Rails.root}/spec/rails_helper.rb"
         click_button 'Сохранить'
         expect(page).to have_content 'Product обновлен'
         expect(page.current_path).to eq products_path
-      end.to change(Attachment, :count).by(2)
+      end.to change(product.attachments, :count).by(1)
     end
 
     scenario 'can remove the picture', js: true do
