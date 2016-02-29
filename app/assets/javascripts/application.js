@@ -21,9 +21,5 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
-  $('.alert-box').closest('[data-alert]').fadeOut(3500);
-  $("a").click(function(){
-    $(".top-bar li").removeClass("active");
-    $(this).parents("li").toggleClass("active");
-  });
+  $('.alert-box').closest('[data-alert]').fadeOut(4500);
 });

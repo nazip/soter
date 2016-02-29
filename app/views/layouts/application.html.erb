@@ -34,9 +34,9 @@
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <li class="active"><a href=<%= pages_path %>>Главная</a></li>
-          <li><%= link_to "Наша продукция", products_path %></li>
-          <li><a href=<%= contacts_pages_path %>>Контакты</a></li>
+          <li class="<%= active_class(pages_path) %>"><a href=<%= pages_path %>>Главная</a></li>
+          <li class="<%= active_class(products_path) %>"><%= link_to "Наша продукция", products_path %></li>
+          <li class="<%= active_class(contacts_pages_path) %>"><a href=<%= contacts_pages_path %>>Контакты</a></li>
         </ul>
       </section>
     </nav>
