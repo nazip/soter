@@ -47,10 +47,12 @@ feature 'products', %q(
     end
 
     scenario 'can remove the picture', js: true do
-      visit edit_product_path product.id
-      expect(page).to have_content 'Удалить'
-      click_on 'Удалить'
-      expect(page).to_not have_content 'Удалить'
+      expect do
+        visit edit_product_path product.id
+        expect(page).to have_content 'Удалить'
+        click_on 'Удалить'
+        expect(page).to_not have_content 'Удалить'
+      end.to change(product.attachments, :count).by(-1)
     end
   end
 end
